@@ -1,0 +1,21 @@
+.hero-section {
+  background-image: url("../../assets/home/image-homepage-hero.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  width: 100%;
+  min-height: 600px;
+}
+
+.hero-section .hero-section--sobremim {
+  background-color: #fafafa;
+
+  padding: 55px 30px 0px 0px;
+  width: 45%;
+  height: 55%;
+}
+
+.sobre-section > * {
+  width: 50%;
+  height: 100%;
+}

@@ -1,0 +1,31 @@
+.manage-section,
+.bookmark-section,
+.insure-section,
+.fylo-section,
+.contato-section {
+  padding-left: 45px;
+  padding-right: 45px;
+}
+
+.manage-section > div,
+.bookmark-section > div,
+.insure-section > div,
+.fylo-section > div {
+  width: 47%;
+  height: 100%;
+}
+
+.manage-section > img,
+.bookmark-section > img,
+.insure-section > img,
+.fylo-section > img {
+  width: 53%;
+  height: 100%;
+}
+
+.manage-section > p,
+.bookmark-section > p,
+.insure-section > p,
+.fylo-section > p {
+  max-width: 350px;
+}

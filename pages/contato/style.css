@@ -1,0 +1,41 @@
+.page > img {
+  width: 100%;
+}
+
+.entre-contato .entre-contato--div,
+.contato .contato--div {
+  width: 55%;
+}
+
+.entre-contato .entre-contato--div a:hover {
+  opacity: 0.8;
+}
+
+.contato label {
+  margin-bottom: 8px;
+
+  color: #33323d;
+
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 30px;
+
+  mix-blend-mode: normal;
+  opacity: 0.8;
+}
+
+.contato input,
+.contato textarea {
+  all: unset;
+  margin-bottom: 24px;
+  background: rgba(51, 50, 62, 0.1);
+
+  box-sizing: border-box;
+  padding: 5px 10px;
+  border: 2px solid rgba(51, 50, 62, 0);
+}
+
+.contato input:focus,
+.contato textarea:focus {
+  border: 2px solid #000000;
+}
