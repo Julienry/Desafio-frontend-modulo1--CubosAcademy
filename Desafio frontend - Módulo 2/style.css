@@ -124,7 +124,7 @@ body {
   position: relative;
   left: 0;
 
-  transition-duration: 0.3s;
+  transition-duration: 0.05s;
 
   cursor: pointer;
 }
@@ -140,6 +140,11 @@ body {
 
 .btn-next:hover {
   left: 3px;
+}
+
+.btn-prev:active,
+.btn-next:active {
+  filter: drop-shadow(0px 0px 4px #e013c85e);
 }
 
 .movie {
