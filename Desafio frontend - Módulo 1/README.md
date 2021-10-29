@@ -2,6 +2,7 @@
 
 # Desafio | Front-end - Módulo 1
 
-Desafio front-end do módulo 1 do curso de Desenvolvimento de Software da Cubos Academy. O objetivo do desafio é replicar um website encontrado no arquivo 'Desafio front academy 1.fig'.
+Esse desafio tem como objetivo replicar um website utilizando como referência o conteúdo do arquivo 'Desafio front academy 1.fig'.
+O arquivo pode ser importado no site [figma](https://figma.com/).
 
 ###### tags: `front-end` `módulo 1` `HTML` `CSS` `desafio`
