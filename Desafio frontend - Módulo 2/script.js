@@ -195,20 +195,44 @@ function criaFilmes(filmes, titulos, avaliacoes) {
       paginacaoFilmes(resultadosFilmes, filmes, titulos, avaliacoes);
 
       btnNext.addEventListener("click", function () {
-        indexBusca = contadorBusca;
-        contadorBusca += 5;
-        if (contadorBusca > resultadosFilmes.length) {
+        if (contadorBusca === resultadosFilmes.length) {
           contadorBusca = 5;
           indexBusca = 0;
+        } else {
+          indexBusca += 5;
+          contadorBusca += 5;
+          if (
+            contadorBusca > resultadosFilmes.length &&
+            resultadosFilmes.length < 20
+          ) {
+            contadorBusca = resultadosFilmes.length;
+          }
         }
         paginacaoFilmes(resultadosFilmes, filmes, titulos, avaliacoes);
       });
       btnPrev.addEventListener("click", function () {
-        contadorBusca -= 5;
-        if (contadorBusca <= 0) {
-          contadorBusca = resultadosFilmes.length;
+        if (
+          contadorBusca === resultadosFilmes.length &&
+          resultadosFilmes.length < 20
+        ) {
+          contadorBusca = contadorBusca - (contadorBusca - indexBusca);
+          indexBusca = contadorBusca - 5;
+        } else {
+          contadorBusca -= 5;
+          indexBusca = contadorBusca - 5;
         }
-        indexBusca = contadorBusca - 5;
+
+        if (contadorBusca <= 0 && resultadosFilmes.length < 20) {
+          contadorBusca = resultadosFilmes.length;
+          indexBusca = contadorBusca;
+          for (let cont = 5; cont < contadorBusca; cont += 5) {
+            indexBusca = contadorBusca - cont;
+          }
+          indexBusca = contadorBusca - indexBusca;
+        } else if (contadorBusca <= 0 && resultadosFilmes.length >= 20) {
+          contadorBusca = resultadosFilmes.length;
+          indexBusca = contadorBusca - 5;
+        }
         paginacaoFilmes(resultadosFilmes, filmes, titulos, avaliacoes);
       });
       input.addEventListener("keydown", function (event) {
@@ -242,11 +266,10 @@ function criaFilmes(filmes, titulos, avaliacoes) {
 }
 
 function paginacaoFilmes(resultados, filmes, titulos, avaliacoes) {
-  if (resultados.length < 5) {
+  if (resultados.length < 5 + indexBusca) {
     contadorBusca = resultados.length;
-    for (let i = 5; i > resultados.length; i--) {
-      console.log(filmes[i - 1]);
-      filmes[i - 1].classList.add("hidden");
+    for (let i = 5 + indexBusca; i > contadorBusca; i--) {
+      filmes[i - indexBusca - 1].classList.add("hidden");
     }
   }
   for (let i = 0; indexBusca + i < contadorBusca; i++) {
@@ -271,7 +294,6 @@ function buscarFilme(inputFilme, resultados, filmes, titulos, avaliacoes) {
     resposta = resposta.json();
     resposta.then((bodyFilme) => {
       if (bodyFilme.total_results === 0) {
-        console.log("Nenhum filme encontrado");
         contadorBusca = 5;
         indexBusca = 0;
         resultadosFilmes = resultados;
